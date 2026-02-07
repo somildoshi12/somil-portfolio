@@ -1,6 +1,9 @@
 # Somil Doshi - Portfolio Website
 
+
 A modern, responsive portfolio website featuring liquid glass morphism effects, smooth animations, and a professional design.
+
+**Live Site:** [https://somil12doshi.github.io/somil-portfolio-website/](https://somil12doshi.github.io/somil-portfolio-website/)
 
 ## Features
 
@@ -101,6 +104,7 @@ Somil-Portfolio-Website/
 │   ├── profile.jpg     # Your profile picture (generated)
 │   └── *.heic          # Your source images
 ├── convert_image.py    # Image conversion script
+├── Somil_Resume.pdf    # Latest Resume
 └── README.md           # This file
 ```
 

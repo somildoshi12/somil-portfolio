@@ -1,6 +1,5 @@
 # Somil Doshi - Portfolio Website
 
-
 A modern, responsive portfolio website featuring liquid glass morphism effects, smooth animations, and a professional design.
 
 **Live Site:** [https://somildoshi12.github.io/somil-portfolio/](https://somildoshi12.github.io/somil-portfolio/)
@@ -30,7 +29,7 @@ A modern, responsive portfolio website featuring liquid glass morphism effects, 
    ```bash
    # Install required Python packages
    pip install Pillow pillow-heif
-   
+
    # Run the conversion script
    python convert_image.py
    ```
@@ -51,7 +50,7 @@ A modern, responsive portfolio website featuring liquid glass morphism effects, 
    ```bash
    # Using Python
    python -m http.server 8000
-   
+
    # Using Node.js (if you have http-server installed)
    npx http-server
    ```
@@ -76,16 +75,17 @@ Edit the CSS variables in `styles/main.css`:
 
 ```css
 :root {
-    --primary-color: #6366f1;    /* Main brand color */
-    --secondary-color: #8b5cf6;  /* Secondary color */
-    --accent-color: #ec4899;     /* Accent color */
-    /* ... */
+  --primary-color: #6366f1; /* Main brand color */
+  --secondary-color: #8b5cf6; /* Secondary color */
+  --accent-color: #ec4899; /* Accent color */
+  /* ... */
 }
 ```
 
 ### Add Your Projects
 
 Update the project cards in the Projects section with:
+
 - Project images (replace gradient backgrounds)
 - Project titles and descriptions
 - Technology tags
@@ -133,4 +133,3 @@ For questions or suggestions, feel free to reach out!
 ---
 
 Built with ❤️ by Somil Doshi
-

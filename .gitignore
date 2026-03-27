@@ -1,0 +1,11 @@
+# Resume (keep private, not tracked in git)
+Somil_Resume.pdf
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/

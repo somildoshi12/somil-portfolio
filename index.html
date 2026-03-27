@@ -39,31 +39,38 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background">
-            <div class="liquid-shape"></div>
-            <div class="liquid-shape"></div>
-            <div class="liquid-shape"></div>
-        </div>
+        <canvas id="hero-canvas"></canvas>
+
         <div class="hero-content">
             <div class="hero-text">
+                <div class="hero-badge">Available for full-time roles · May 2026</div>
                 <h1 class="hero-title">
                     <span class="line">Hi, I'm</span>
                     <span class="line highlight">Somil Doshi</span>
-                    <span class="line">Data Engineer & Data Analyst</span>
                 </h1>
-                <p class="hero-description">Building scalable data pipelines and transforming complex data into
-                    actionable insights</p>
+                <div class="hero-roles">
+                    <span class="role-pill">Data Engineer</span>
+                    <span class="role-divider">·</span>
+                    <span class="role-pill">Data Analyst</span>
+                    <span class="role-divider">·</span>
+                    <span class="role-pill">ML Engineer</span>
+                </div>
+                <p class="hero-description">Building scalable data pipelines and transforming complex data into actionable insights</p>
                 <div class="hero-buttons">
                     <a href="#experience" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-wrapper glass-effect">
-                    <img src="images/image.png" alt="Somil Doshi" id="profile-image">
+                <div class="hero-photo-scene" id="photo-scene">
+                    <div class="hero-photo-glow" id="photo-glow"></div>
+                    <div class="hero-photo-frame" id="photo-frame">
+                        <img src="images/image2.jpeg" alt="Somil Doshi" id="profile-image">
+                    </div>
                 </div>
             </div>
         </div>
+
         <div class="scroll-indicator">
             <div class="mouse"></div>
         </div>
@@ -75,16 +82,13 @@
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="about-text glass-effect" style="text-align: justify;">
-                    <p>Graduate Engineering Data Science student with experience across data analytics, data
-                        engineering, and applied analytics and modeling in both academic and industry settings. Skilled
-                        in building end-to-end data pipelines, performing data transformations, and delivering insights
-                        through dashboards, reporting, and scalable data workflows.</p>
+                    <p>Results-driven Data Science graduate with hands-on experience in data engineering, analytics, and predictive modeling across industry and research settings. Skilled in building end-to-end pipelines, designing stakeholder-facing dashboards, and applying machine learning and statistical techniques to deliver actionable insights. Thrives in collaborative, cross-functional environments with a strong focus on translating complex data into clear decisions.</p>
                     <p>I will be graduating in <span class="highlight">May 2026</span> and am actively open to <span
                             class="highlight">Data Engineer</span>, <span class="highlight">Data Analyst</span>, and
                         <span class="highlight">Business Analyst</span> roles.</p>
                     <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number" data-target="5">0</div>
+                            <div class="stat-number" data-target="4">0</div>
                             <div class="stat-label">Positions Held</div>
                         </div>
                         <div class="stat-item">
@@ -149,10 +153,14 @@
                                 ingestion, transformation, and structured storage, improving data availability and
                                 analysis readiness by 30%.</li>
                             <li>Built and optimized SQL-based analytical data models using Databricks, reducing query
-                                latency by 22% and improving analytical performance across research workflows.</li>
-                            <li>Deployed and managed data services and storage systems using PostgreSQL, Docker, and
-                                Kubernetes, ensuring scalable, secure access to datasets and supporting multiple
-                                concurrent research projects.</li>
+                                latency by 22%; collaborated with faculty and peer researchers to align pipeline outputs
+                                with evolving research requirements.</li>
+                            <li>Deployed and managed data services using PostgreSQL and Docker, ensuring scalable,
+                                secure dataset access across multiple concurrent research projects for cross-functional
+                                academic teams.</li>
+                            <li>Conducted exploratory data analysis and statistical reporting to surface trends,
+                                presenting findings to research stakeholders and translating results into actionable
+                                next steps.</li>
                         </ul>
                     </div>
                 </div>
@@ -190,32 +198,15 @@
                         <h3>Data Analyst Intern</h3>
                         <h4>Colin Motors</h4>
                         <ul class="experience-list">
-                            <li>Analyzed and consolidated 50K+ motor production, quality, and sales records using
+                            <li>Analyzed and consolidated 10K+ motor production, quality, and sales records using
                                 MongoDB and Databricks, orchestrated with Airflow and standardized via dbt, improving
                                 forecasting reliability by 19%.</li>
-                            <li>Developed time-series analytics pipelines in Databricks and AWS SageMaker, integrating
-                                Kafka streams from the manufacturing and sales systems, achieving 92% accuracy and
-                                reducing prediction error by 18%.</li>
-                            <li>Designed Power BI dashboards with DAX to track motor performance KPIs, production
-                                throughput, and sales seasonality, helping operations and commercial teams identify
-                                anomalies and plan capacity effectively.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item glass-effect">
-                    <div class="timeline-date">Jan 2022 – Aug 2022</div>
-                    <div class="timeline-content">
-                        <h3>Data Engineer Intern</h3>
-                        <h4>TCR Innovations</h4>
-                        <ul class="experience-list">
-                            <li>Introduced ETL pipelines in Python with AWS RDS integration, managing 80K+ drilling
-                                records and enforcing schema rules, reducing refresh cycles by 34% and improving
-                                reliability of downstream workloads.</li>
-                            <li>Deployed predictive APIs supporting operational analytics, linked to React.js
-                                interfaces, sustaining 89% accuracy while reducing manual intervention for operational
-                                teams.</li>
-                            <li>Automated cloud deployments with Docker, AWS Lambda, ensuring stable builds across
-                                staging and production.</li>
+                            <li>Developed time-series demand forecasting pipelines in Databricks, achieving 92%
+                                forecast accuracy and reducing prediction error by 18% against baseline models;
+                                partnered with operations teams to validate outputs and refine model assumptions.</li>
+                            <li>Designed Power BI dashboards with DAX to track motor performance KPIs and sales
+                                seasonality, communicating insights to commercial and operations stakeholders to support
+                                capacity planning decisions.</li>
                         </ul>
                     </div>
                 </div>
@@ -236,10 +227,11 @@
                         <span>Python</span>
                         <span>SQL</span>
                         <span>R</span>
-                        <span>Java</span>
+                        <span>Pandas</span>
+                        <span>NumPy</span>
+                        <span>Scikit-learn</span>
                         <span>Streamlit</span>
                         <span>Flask</span>
-                        <span>AWS SageMaker</span>
                         <span>Git</span>
                         <span>MS Excel</span>
                     </div>
@@ -264,7 +256,6 @@
                         <span>PostgreSQL</span>
                         <span>AWS RDS</span>
                         <span>MongoDB Atlas</span>
-                        <span>Azure Cosmos DB</span>
                         <span>MySQL</span>
                         <span>Power BI</span>
                         <span>Tableau</span>
@@ -274,9 +265,10 @@
                     <div class="skill-icon">📊</div>
                     <h3>Data Modeling & Processing</h3>
                     <div class="skill-tags">
-                        <span>Data Modeling</span>
+                        <span>Predictive Modeling</span>
+                        <span>Feature Engineering</span>
+                        <span>Statistical Analysis</span>
                         <span>Data Quality Checks</span>
-                        <span>Batch Processing</span>
                         <span>JSON</span>
                         <span>Parquet</span>
                     </div>
@@ -582,7 +574,11 @@
         </div>
     </div>
 
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+
     <script src="scripts/main.js"></script>
+    <script src="scripts/three-scene.js"></script>
 </body>
 
 </html>

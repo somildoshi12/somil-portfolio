@@ -24,6 +24,11 @@
     box-sizing: border-box;
 }
 
+/* Hide native cursor on devices that support hover (custom cursor shown instead) */
+@media (hover: hover) {
+    * { cursor: none !important; }
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -276,63 +281,13 @@ body {
     padding: 100px 20px 50px;
 }
 
-.hero-background {
+#hero-canvas {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    overflow: hidden;
-}
-
-.liquid-shape {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.15;
-    animation: float 30s infinite ease-in-out;
-    will-change: transform;
-    mix-blend-mode: screen;
-}
-
-.liquid-shape:nth-child(1) {
-    width: 500px;
-    height: 500px;
-    background: var(--primary-color);
-    top: -100px;
-    left: -100px;
-    animation-delay: 0s;
-}
-
-.liquid-shape:nth-child(2) {
-    width: 400px;
-    height: 400px;
-    background: var(--accent-color);
-    bottom: -100px;
-    right: -100px;
-    animation-delay: 5s;
-}
-
-.liquid-shape:nth-child(3) {
-    width: 300px;
-    height: 300px;
-    background: var(--secondary-color);
-    top: 50%;
-    left: 50%;
-    animation-delay: 10s;
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translate(0, 0) scale(1);
-    }
-    33% {
-        transform: translate(50px, -50px) scale(1.1);
-    }
-    66% {
-        transform: translate(-50px, 50px) scale(0.9);
-    }
+    pointer-events: none;
+    z-index: 0;
 }
 
 .hero-content {
@@ -343,6 +298,190 @@ body {
     gap: 4rem;
     align-items: center;
     z-index: 1;
+}
+
+/* Hero badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1.1rem;
+    background: rgba(99,102,241,0.12);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 1.4rem;
+    letter-spacing: 0.01em;
+}
+
+.hero-badge::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e;
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.6; transform: scale(1.4); }
+}
+
+/* Role pills */
+.hero-roles {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+    flex-wrap: wrap;
+}
+
+.role-pill {
+    padding: 0.35rem 1rem;
+    background: var(--glass-bg);
+    border: 0.5px solid var(--glass-border);
+    border-radius: 999px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    backdrop-filter: blur(12px);
+}
+
+.role-divider {
+    color: var(--glass-border-strong);
+    font-size: 1.1rem;
+}
+
+/* Hero photo */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s 1.2s forwards;
+}
+
+/* ── Hero photo parallax ───────────────────────────────────────────────────── */
+
+/* Outer scene — the element we mouse-track against */
+.hero-photo-scene {
+    position: relative;
+    width: 420px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ambient glow — shifts opposite to frame (slow layer) */
+.hero-photo-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%,
+        rgba(99,102,241,0.35) 0%,
+        rgba(139,92,246,0.15) 40%,
+        transparent 70%);
+    filter: blur(36px);
+    pointer-events: none;
+    will-change: transform;
+    z-index: 0;
+}
+
+/* Photo frame — moves at medium speed */
+.hero-photo-frame {
+    position: relative;
+    width: 380px;
+    height: 460px;
+    border-radius: 200px 200px 180px 180px;
+    overflow: hidden;
+    will-change: transform;
+    z-index: 2;
+    box-shadow:
+        0 0 0 1px rgba(99,102,241,0.2),
+        0 20px 60px rgba(0,0,0,0.55),
+        0 8px 24px rgba(99,102,241,0.2);
+}
+
+.hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Crop to face — portrait is 3:4 approx, shift slightly up */
+    object-position: 50% 8%;
+    display: block;
+    filter: brightness(1.05) contrast(1.03) saturate(1.05);
+    will-change: transform;
+    /* Image moves the most — fast layer gives depth illusion */
+    transition: transform 0.05s linear;
+}
+
+@keyframes ring-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* ── Custom cursor ─────────────────────────────────────────────────────────── */
+#cursor-dot {
+    width: 5px;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.05s linear, width 0.18s ease, height 0.18s ease, opacity 0.2s ease;
+    will-change: transform;
+}
+
+#cursor-ring {
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    position: fixed;
+    top: 0; left: 0;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    will-change: transform;
+    transition: width 0.3s cubic-bezier(0.34,1.56,0.64,1),
+                height 0.3s cubic-bezier(0.34,1.56,0.64,1),
+                border-color 0.3s ease,
+                opacity 0.25s ease;
+    backdrop-filter: invert(8%);
+}
+
+/* On hover: dot hides, ring becomes a larger highlight circle */
+body.cursor-hover #cursor-dot {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+body.cursor-hover #cursor-ring {
+    width: 44px;
+    height: 44px;
+    border-color: rgba(99,102,241,0.55);
+    background: rgba(99,102,241,0.06);
+}
+
+/* On click feel */
+body.cursor-click #cursor-ring {
+    width: 20px;
+    height: 20px;
+    border-color: rgba(236,72,153,0.7);
+}
+
+@media (hover: none) {
+    #cursor-dot, #cursor-ring { display: none; }
 }
 
 .hero-title {
@@ -509,27 +648,13 @@ body {
     animation: fadeIn 1s 1.2s forwards;
 }
 
+/* legacy .image-wrapper kept for safety */
 .image-wrapper {
     width: 400px;
     height: 400px;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
-    box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-}
-
-.image-wrapper::before {
-    content: none;
-}
-
-
-.image-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
 }
 
 @keyframes fadeIn {
@@ -1313,6 +1438,15 @@ section {
         text-align: center;
     }
 
+    .hero-roles {
+        justify-content: center;
+    }
+
+    .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .hero-title {
         font-size: 3rem;
     }
@@ -1385,9 +1519,15 @@ section {
         font-size: 1.5rem;
     }
 
-    .image-wrapper {
-        width: 300px;
+    .hero-photo-scene {
+        width: 260px;
+        height: 320px;
+    }
+
+    .hero-photo-frame {
+        width: 240px;
         height: 300px;
+        border-radius: 120px 120px 110px 110px;
     }
 }
 
@@ -1426,6 +1566,23 @@ section {
     .nav-menu {
         top: 60px;
     }
+}
+
+/* Hero canvas (particle network) — sizing handled by JS */
+#hero-canvas {
+    pointer-events: none;
+}
+
+/* 3D Tilt card */
+.tilt-card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    will-change: transform;
+}
+
+.tilt-card .tilt-inner {
+    transform: translateZ(20px);
+    transform-style: preserve-3d;
 }
 
 /* Success Modal */

@@ -3,7 +3,7 @@
 
 A modern, responsive portfolio website featuring liquid glass morphism effects, smooth animations, and a professional design.
 
-**Live Site:** [https://somil12doshi.github.io/somil-portfolio-website/](https://somil12doshi.github.io/somil-portfolio-website/)
+**Live Site:** [https://somildoshi12.github.io/somil-portfolio/](https://somildoshi12.github.io/somil-portfolio/)
 
 ## Features
 

@@ -1064,6 +1064,7 @@ section {
     margin-bottom: 0.75rem;
     color: var(--text-secondary);
     line-height: 1.7;
+    text-align: justify;
 }
 
 .experience-list li::before {
@@ -1075,7 +1076,7 @@ section {
 }
 
 .timeline {
-    max-width: 800px;
+    max-width: 1100px;
     margin: 0 auto;
     position: relative;
 }
@@ -1094,7 +1095,7 @@ section {
 .timeline-item {
     padding: 2rem;
     margin-bottom: 3rem;
-    width: 45%;
+    width: calc(50% - 30px);
     position: relative;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1109,6 +1110,36 @@ section {
 
 .timeline-item:nth-child(even) {
     margin-left: auto;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    top: 2.2rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    border: 2px solid var(--bg-dark);
+    box-shadow: 0 0 10px var(--primary-color);
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:nth-child(odd)::after {
+    right: -36px;
+    left: auto;
+}
+
+.timeline-item:nth-child(even)::after {
+    left: -36px;
+    right: auto;
+}
+
+.timeline-item:hover::after {
+    background: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+    transform: scale(1.2);
 }
 
 .timeline-date {
@@ -1130,6 +1161,7 @@ section {
 .timeline-content p {
     color: var(--text-secondary);
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* Contact Section */
@@ -1457,11 +1489,18 @@ section {
 
     .timeline::before {
         left: 20px;
+        transform: none;
     }
 
     .timeline-item {
         width: calc(100% - 60px);
         margin-left: 60px !important;
+    }
+
+    .timeline-item:nth-child(odd)::after,
+    .timeline-item:nth-child(even)::after {
+        left: -46px;
+        right: auto;
     }
 }
 

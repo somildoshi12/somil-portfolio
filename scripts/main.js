@@ -193,7 +193,7 @@ if (contactForm) {
                 }
             }
         } catch (error) {
-            alert('Sorry, there was an error sending your message. Please try again or email me directly at somil@myjobflows.com');
+            alert('Sorry, there was an error sending your message. Please try again or email me directly at somil.d@myjobflows.com');
             console.error('Form submission error:', error);
         } finally {
             submitButton.textContent = originalText;

@@ -1,134 +1,74 @@
-# Somil Doshi - Portfolio Website
+# Somil Doshi - Personal Portfolio Website
 
-A modern, responsive portfolio website featuring liquid glass morphism effects, smooth animations, and a professional design.
+A modern, high-performance, responsive personal portfolio website for **Somil Doshi** (Business Analyst & Data Analytics Professional), featuring liquid glassmorphism aesthetics, interactive 3D scene elements, custom dynamic cursor, and fluid scroll animations.
 
-**Live Site:** [https://somildoshi12.github.io/somil-portfolio/](https://somildoshi12.github.io/somil-portfolio/)
+**Live Website:** [https://somildoshi12.github.io/somil-portfolio/](https://somildoshi12.github.io/somil-portfolio/)
 
-## Features
+---
 
-- ✨ **Liquid Glass Morphism** - Beautiful glassmorphism effects throughout
-- 🎨 **Modern UI** - Clean, professional design with gradient accents
-- 📱 **Fully Responsive** - Optimized for mobile, tablet, and desktop
-- 🎭 **Smooth Animations** - Engaging scroll animations and transitions
-- 🧭 **Fixed Navbar** - Sticky navigation with active link highlighting
-- ⚡ **Fast & Optimized** - Lightweight and performant
+## 🚀 Overview & Experience
 
-## Getting Started
+Business Analyst with **3+ years of experience** delivering business analysis, requirements engineering, and analytics solutions across healthcare and IT organizations.
 
-### Prerequisites
+### Key Highlights
+- **Work Experience**:
+  - **Business Analyst** | United Health Group, USA (*June 2025 – Present*)
+  - **Business Analyst** | Optum, India (*May 2023 – July 2024*)
+  - **Junior Data Analyst** | Trigent Software, India (*March 2022 – April 2023*)
+- **Education**:
+  - **Master in Engineering Data Science** | University of Houston (*GPA: 3.9/4.0*)
+  - **Bachelor of Engineering in Information Technology** | University of Mumbai (*GPA: 3.84/4.0*)
+- **Certifications**:
+  - **Databricks Certified Data Engineer Associate**
+  - **Microsoft Certified: Power BI Data Analyst Associate (PL-300)**
+  - **AWS Certified Cloud Practitioner (CLF-C02)**
 
-- A modern web browser
-- Python 3 (optional, for image conversion)
+---
 
-### Setup
+## ✨ Website Features
 
-1. **Convert Your Profile Image**
+- 💎 **Ultra-Refined Liquid Glassmorphism** – Backdrop blur filters, glass highlight overlays, and glowing borders.
+- 🌌 **Interactive 3D Canvas Scene** – Dynamic Three.js background ambient particles.
+- 🎯 **3D Parallax & Card Tilt** – Interactive mouse tracking with depth illusion on hero image and cards.
+- 🖱️ **Custom Dynamic Cursor** – Smooth lagging cursor ring with interactive hover/click feedback.
+- 📱 **Fully Responsive** – Tailored layout for mobile, tablet, and desktop viewports.
+- ⚡ **Optimized Performance** – Pure Vanilla HTML5, CSS3, and JavaScript without bloat.
 
-   The website expects a profile image at `images/profile.jpg`. To convert your HEIC images:
+---
 
-   ```bash
-   # Install required Python packages
-   pip install Pillow pillow-heif
+## 🛠️ Technical Stack & Tools Highlighted
 
-   # Run the conversion script
-   python convert_image.py
-   ```
+- **Languages**: Python, SQL, R
+- **BI & Visualization**: Tableau, Power BI, Looker, QlikView, Figma, Visio
+- **Analytics & Cloud Data Platforms**: Snowflake, Alteryx, Dataiku, Databricks, AWS (S3, Glue, Athena), Excel
+- **Enterprise & Project Systems**: JIRA, Salesforce, Microsoft Dynamics 365, SAP (ERP Systems), MS Project, Smartsheet
+- **Requirements Engineering & Methodologies**: Agile, SCRUM, SDLC, Waterfall, FRD, BRD, SRS, UAT, GAP Analysis, SWOT Analysis, Requirements Traceability Matrix (RTM)
 
-   This will automatically:
-   - Find the first image in the `images/` folder
-   - Convert it to JPG format
-   - Crop it to a square (centered)
-   - Resize it to 800x800 pixels
-   - Save it as `images/profile.jpg`
+---
 
-   **Alternative:** You can manually convert your images using online tools or image editing software.
+## 📁 File Structure
 
-2. **Open the Website**
-
-   Simply open `index.html` in your web browser, or use a local server:
-
-   ```bash
-   # Using Python
-   python -m http.server 8000
-
-   # Using Node.js (if you have http-server installed)
-   npx http-server
-   ```
-
-   Then visit `http://localhost:8000` in your browser.
-
-## Customization
-
-### Update Your Information
-
-Edit `index.html` to update:
-
-- **About Section** - Your bio and statistics
-- **Skills** - Your technical skills and technologies
-- **Projects** - Your featured projects with descriptions
-- **Experience** - Your work history
-- **Contact** - Your contact information and social links
-
-### Change Colors
-
-Edit the CSS variables in `styles/main.css`:
-
-```css
-:root {
-  --primary-color: #6366f1; /* Main brand color */
-  --secondary-color: #8b5cf6; /* Secondary color */
-  --accent-color: #ec4899; /* Accent color */
-  /* ... */
-}
-```
-
-### Add Your Projects
-
-Update the project cards in the Projects section with:
-
-- Project images (replace gradient backgrounds)
-- Project titles and descriptions
-- Technology tags
-- Links to live projects and GitHub repositories
-
-## File Structure
-
-```
+```text
 Somil-Portfolio-Website/
-├── index.html          # Main HTML file
+├── index.html          # Main HTML structure & content
 ├── styles/
-│   └── main.css        # All styles and animations
+│   └── main.css        # Core design system, glassmorphism, & layout styles
 ├── scripts/
-│   └── main.js         # JavaScript functionality
+│   ├── main.js         # Navigation, animations, form submission & custom cursor
+│   └── three-scene.js  # Three.js 3D background particle scene
 ├── images/
-│   ├── profile.jpg     # Your profile picture (generated)
-│   └── *.heic          # Your source images
-├── convert_image.py    # Image conversion script
-├── Somil_Resume.pdf    # Latest Resume
-└── README.md           # This file
+│   └── image2.jpeg     # Hero profile photo
+└── README.md           # Documentation
 ```
 
-## Browser Support
+---
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
+## 📬 Contact & Links
 
-## Technologies Used
-
-- HTML5
-- CSS3 (with CSS Grid, Flexbox, and Custom Properties)
-- Vanilla JavaScript (ES6+)
-- Google Fonts (Inter & Playfair Display)
-
-## License
-
-This project is open source and available for personal use.
-
-## Contact
-
-For questions or suggestions, feel free to reach out!
+- **Email**: [somil.d@myjobflows.com](mailto:somil.d@myjobflows.com)
+- **Phone**: +1 (713)-572-5426
+- **LinkedIn**: [linkedin.com/in/somil12doshi](https://www.linkedin.com/in/somil12doshi/)
+- **GitHub**: [github.com/somildoshi12](https://github.com/somildoshi12)
 
 ---
 

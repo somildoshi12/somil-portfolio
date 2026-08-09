@@ -295,16 +295,16 @@ const cardObserver = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 
-document.querySelectorAll('.skill-card, .project-card, .timeline-item').forEach(card => {
+document.querySelectorAll('.skill-card, .project-card, .timeline-item, .experience-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     cardObserver.observe(card);
 });
 
-// ── 3D Tilt — all cards ────────────────────────────────────────────────────────
+// ── 3D Tilt — select cards ────────────────────────────────────────────────────
 function initTilt() {
-    document.querySelectorAll('.project-card, .education-item, .timeline-item, .skill-card, .cert-card, .publication-card').forEach(card => {
+    document.querySelectorAll('.project-card, .education-item, .skill-card, .cert-card, .publication-card').forEach(card => {
         card.classList.add('tilt-card');
 
         card.addEventListener('mousemove', (e) => {
@@ -364,6 +364,29 @@ initTilt();
     })();
 })();
 
+// ── Experience Card Expand Handler ───────────────────────────────────────────
+document.querySelectorAll('.experience-card').forEach(card => {
+    const toggleExpand = () => {
+        card.classList.toggle('expanded');
+        const isExpanded = card.classList.contains('expanded');
+        card.setAttribute('aria-expanded', isExpanded);
+        
+        const expandText = card.querySelector('.expand-text');
+        if (expandText) {
+            expandText.textContent = isExpanded ? 'Click to hide responsibilities' : 'Click to view responsibilities';
+        }
+    };
+
+    card.addEventListener('click', toggleExpand);
+
+    card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleExpand();
+        }
+    });
+});
+
 // ── Custom cursor ─────────────────────────────────────────────────────────────
 (function () {
     const dot  = document.getElementById('cursor-dot');
@@ -390,12 +413,12 @@ initTilt();
 
     // Hover state on interactive elements
     document.addEventListener('mouseover', (e) => {
-        if (e.target.closest('a, button, .btn, .nav-link, .role-pill, .skill-tags span, .project-card, .cert-card, .publication-card, .social-link')) {
+        if (e.target.closest('a, button, .btn, .nav-link, .role-pill, .skill-tags span, .project-card, .cert-card, .publication-card, .social-link, .experience-card')) {
             document.body.classList.add('cursor-hover');
         }
     });
     document.addEventListener('mouseout', (e) => {
-        if (e.target.closest('a, button, .btn, .nav-link, .role-pill, .skill-tags span, .project-card, .cert-card, .publication-card, .social-link')) {
+        if (e.target.closest('a, button, .btn, .nav-link, .role-pill, .skill-tags span, .project-card, .cert-card, .publication-card, .social-link, .experience-card')) {
             document.body.classList.remove('cursor-hover');
         }
     });

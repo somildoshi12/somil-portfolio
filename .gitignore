@@ -9,3 +9,7 @@ Thumbs.db
 # Editor
 .vscode/
 .idea/
+
+# Large training / source assets
+Training image/
+

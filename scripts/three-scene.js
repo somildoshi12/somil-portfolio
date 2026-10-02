@@ -9,13 +9,13 @@
 
     // ── Config ────────────────────────────────────────────────────────────────
     const CONFIG = {
-        particleCount: 90,
-        connectionDistance: 160,
+        particleCount: 80,
+        connectionDistance: 150,
         mouseRadius: 180,
-        baseSpeed: 0.28,
-        colors: ['#6366f1', '#8b5cf6', '#ec4899', '#a78bfa', '#c084fc'],
-        minRadius: 1.5,
-        maxRadius: 3.5,
+        baseSpeed: 0.22,
+        colors: ['#2997ff', '#5ac8fa', '#64d2ff', '#86868b', '#a1a1a6'],
+        minRadius: 1.2,
+        maxRadius: 2.8,
     };
 
     let W = 0, H = 0;
@@ -107,7 +107,7 @@
                 const dist = Math.sqrt(dx * dx + dy * dy);
 
                 if (dist < CONFIG.connectionDistance) {
-                    const opacity = (1 - dist / CONFIG.connectionDistance) * 0.35;
+                    const opacity = (1 - dist / CONFIG.connectionDistance) * 0.22;
                     // Gradient line between the two particle colors
                     const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
                     grad.addColorStop(0, hexToRgba(a.color, opacity));
@@ -116,7 +116,7 @@
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
                     ctx.strokeStyle = grad;
-                    ctx.lineWidth = 0.8;
+                    ctx.lineWidth = 0.6;
                     ctx.stroke();
                 }
             }

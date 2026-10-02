@@ -152,10 +152,14 @@ const sectionObserver = new IntersectionObserver((entries) => {
 });
 
 document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(30px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    sectionObserver.observe(section);
+    if (section.id !== 'home') {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(24px)';
+        section.style.transition = 'opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
+        sectionObserver.observe(section);
+    } else {
+        section.style.opacity = '1';
+    }
 });
 
 // Form submission - Formspree integration
@@ -193,7 +197,7 @@ if (contactForm) {
                 }
             }
         } catch (error) {
-            alert('Sorry, there was an error sending your message. Please try again or email me directly at somil.d@myjobflows.com');
+            alert('Sorry, there was an error sending your message. Please try again or email me directly at somildoshi1202@gmail.com');
             console.error('Form submission error:', error);
         } finally {
             submitButton.textContent = originalText;
@@ -242,13 +246,34 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Active navigation link on scroll
+// ── Liquid Glass Sliding Navbar Indicator ───────────────────────────────────
+const navMenuEl = document.getElementById('nav-menu') || document.querySelector('.nav-menu');
+const navIndicator = document.getElementById('nav-indicator-glass');
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
+function moveNavIndicatorTo(targetLink) {
+    if (!navIndicator || !targetLink || !navMenuEl) return;
+    if (window.innerWidth <= 768) {
+        navIndicator.style.opacity = '0';
+        return;
+    }
+    const menuRect = navMenuEl.getBoundingClientRect();
+    const linkRect = targetLink.getBoundingClientRect();
+    const left = linkRect.left - menuRect.left;
+    const top = linkRect.top - menuRect.top;
+    const width = linkRect.width;
+    const height = linkRect.height;
+
+    navIndicator.style.opacity = '1';
+    navIndicator.style.transform = `translate(${left}px, ${top}px)`;
+    navIndicator.style.width = `${width}px`;
+    navIndicator.style.height = `${height}px`;
+}
+
 function updateActiveNavLink() {
     let current = '';
-    const scrollPosition = window.pageYOffset + 150;
+    const scrollPosition = window.pageYOffset + 180;
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
@@ -258,16 +283,50 @@ function updateActiveNavLink() {
         }
     });
 
+    let activeLink = null;
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
             link.classList.add('active');
+            activeLink = link;
+        }
+    });
+
+    if (!activeLink && navLinks.length > 0) {
+        activeLink = navLinks[0];
+        activeLink.classList.add('active');
+    }
+
+    if (navMenuEl && !navMenuEl.matches(':hover') && activeLink) {
+        moveNavIndicatorTo(activeLink);
+    }
+}
+
+if (navMenuEl) {
+    navLinks.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            moveNavIndicatorTo(link);
+        });
+    });
+
+    navMenuEl.addEventListener('mouseleave', () => {
+        const currentActive = navMenuEl.querySelector('.nav-link.active') || navLinks[0];
+        if (currentActive) {
+            moveNavIndicatorTo(currentActive);
         }
     });
 }
 
 window.addEventListener('scroll', updateActiveNavLink);
-updateActiveNavLink(); // Call once on load
+window.addEventListener('resize', () => {
+    const currentActive = navMenuEl ? (navMenuEl.querySelector('.nav-link.active') || navLinks[0]) : null;
+    if (currentActive) moveNavIndicatorTo(currentActive);
+});
+
+// Initial position on load
+setTimeout(() => {
+    updateActiveNavLink();
+}, 100);
 
 // Logo click to scroll to top
 const logo = document.querySelector('.logo');
@@ -280,14 +339,14 @@ if (logo) {
     });
 }
 
-// Add fade-in animation to skill cards and project cards
+// Add fade-in animation to cards
 const cardObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
-            }, index * 100);
+            }, index * 80);
             cardObserver.unobserve(entry.target);
         }
     });
@@ -295,30 +354,32 @@ const cardObserver = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 
-document.querySelectorAll('.skill-card, .project-card, .timeline-item, .experience-card').forEach(card => {
+document.querySelectorAll('.skill-card, .education-item, .cert-card, .publication-card, .experience-card').forEach(card => {
     card.style.opacity = '0';
-    card.style.transform = 'translateY(20px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    card.style.transform = 'translateY(16px)';
+    card.style.transition = 'opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)';
     cardObserver.observe(card);
 });
 
-// ── 3D Tilt — select cards ────────────────────────────────────────────────────
+// ── 3D Tilt — subtle Apple tactile feedback ───────────────────────────────────
 function initTilt() {
-    document.querySelectorAll('.project-card, .education-item, .skill-card, .cert-card, .publication-card').forEach(card => {
+    if (window.matchMedia('(hover: none)').matches) return;
+    
+    document.querySelectorAll('.education-item, .skill-card, .cert-card, .publication-card, .experience-card').forEach(card => {
         card.classList.add('tilt-card');
 
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
             const dx = (e.clientX - rect.left - rect.width  / 2) / (rect.width  / 2);
             const dy = (e.clientY - rect.top  - rect.height / 2) / (rect.height / 2);
-            card.style.transition = 'transform 0.08s ease';
+            card.style.transition = 'transform 0.1s ease-out';
             card.style.transform =
-                `perspective(900px) rotateX(${-dy * 8}deg) rotateY(${dx * 8}deg) translateY(-6px) scale(1.02)`;
+                `perspective(1000px) rotateX(${-dy * 3.5}deg) rotateY(${dx * 3.5}deg) translateY(-4px)`;
         });
 
         card.addEventListener('mouseleave', () => {
-            card.style.transition = 'transform 0.55s cubic-bezier(0.34,1.56,0.64,1)';
-            card.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
+            card.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
         });
     });
 }
@@ -333,14 +394,12 @@ initTilt();
     const img   = document.getElementById('profile-image');
     if (!scene || !frame || !img) return;
 
-    // Smooth interpolated values for each layer
-    let tx = 0, ty = 0;         // target (raw mouse offset)
-    let g  = { x: 0, y: 0 };   // glow  — slow, opposite
-    let fr = { x: 0, y: 0 };   // frame — medium
-    let im = { x: 0, y: 0 };   // image — fast (most depth)
+    let tx = 0, ty = 0;
+    let g  = { x: 0, y: 0 };
+    let fr = { x: 0, y: 0 };
+    let im = { x: 0, y: 0 };
 
     document.addEventListener('mousemove', (e) => {
-        // Normalise to -1 … +1 relative to viewport centre
         tx = (e.clientX / window.innerWidth  - 0.5) * 2;
         ty = (e.clientY / window.innerHeight - 0.5) * 2;
     });
@@ -348,12 +407,11 @@ initTilt();
     function lerp(a, b, t) { return a + (b - a) * t; }
 
     (function loop() {
-        // Each layer chases at different speeds → depth illusion
-        g.x  = lerp(g.x,  tx * -14, 0.04);   // glow: slow, counter-direction
+        g.x  = lerp(g.x,  tx * -14, 0.04);
         g.y  = lerp(g.y,  ty * -14, 0.04);
-        fr.x = lerp(fr.x, tx *  10, 0.07);   // frame: medium
+        fr.x = lerp(fr.x, tx *  10, 0.07);
         fr.y = lerp(fr.y, ty *  10, 0.07);
-        im.x = lerp(im.x, tx *  18, 0.10);   // image: fastest
+        im.x = lerp(im.x, tx *  18, 0.10);
         im.y = lerp(im.y, ty *  18, 0.10);
 
         if (glow)  glow.style.transform  = `translate(${g.x}px, ${g.y}px)`;
@@ -363,29 +421,6 @@ initTilt();
         requestAnimationFrame(loop);
     })();
 })();
-
-// ── Experience Card Expand Handler ───────────────────────────────────────────
-document.querySelectorAll('.experience-card').forEach(card => {
-    const toggleExpand = () => {
-        card.classList.toggle('expanded');
-        const isExpanded = card.classList.contains('expanded');
-        card.setAttribute('aria-expanded', isExpanded);
-        
-        const expandText = card.querySelector('.expand-text');
-        if (expandText) {
-            expandText.textContent = isExpanded ? 'Click to hide responsibilities' : 'Click to view responsibilities';
-        }
-    };
-
-    card.addEventListener('click', toggleExpand);
-
-    card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggleExpand();
-        }
-    });
-});
 
 // ── Custom cursor ─────────────────────────────────────────────────────────────
 (function () {

@@ -9,17 +9,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 </head>
 
 <body>
+    <!-- Ambient Liquid Glass Background Orbs -->
+    <div class="ambient-orbs" aria-hidden="true">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">SD</div>
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
+            <ul class="nav-menu" id="nav-menu">
+                <div class="nav-indicator-glass" id="nav-indicator-glass"></div>
+                <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -42,12 +51,12 @@
 
         <div class="hero-content">
             <div class="hero-text">
-                <div class="hero-badge">Available for full-time roles</div>
+                <div class="hero-badge">RCM Systems Specialist · Specialty1 Partners</div>
                 <h1 class="hero-title">
                     <span class="line">Hi, I'm</span>
                     <span class="line highlight">Somil Doshi</span>
                 </h1>
-                <p class="hero-description">Business Analyst with 3+ years of experience delivering business analysis, requirements engineering, and analytics solutions across healthcare and IT organizations.</p>
+                <p class="hero-description">RCM Systems Specialist & Data Analyst with expertise in healthcare revenue cycle systems, requirements engineering, and scalable analytics solutions.</p>
                 <div class="hero-buttons">
                     <a href="#experience" class="btn btn-primary">View My Work</a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
@@ -73,9 +82,9 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <div class="about-text glass-effect" style="text-align: justify;">
-                    <p>Business Analyst with 3+ years of experience delivering business analysis, requirements engineering, and analytics solutions across healthcare and IT organizations. Proven expertise in requirements gathering, stakeholder collaboration, GAP analysis, business process mapping, SDLC, Agile/Scrum, UAT, and Requirements Traceability Matrix (RTM). Skilled in translating complex business requirements into scalable technology solutions using SQL, Python, Power BI, Tableau, Snowflake, SAP ERP, and cloud data platforms to optimize workflows, improve reporting, and enable data-driven strategic decision-making.</p>
-                    <p>Actively seeking full-time roles in Business Analysis, Data Analytics, and Product Management.</p>
+                <div class="about-text glass-effect">
+                    <p>RCM Systems Specialist with 3+ years of experience delivering business analysis, requirements engineering, and analytics solutions across healthcare and IT organizations. Proven expertise in requirements gathering, stakeholder collaboration, GAP analysis, business process mapping, SDLC, Agile/Scrum, UAT, and Requirements Traceability Matrix (RTM). Skilled in translating complex business requirements into scalable technology solutions using SQL, Python, Power BI, Tableau, Snowflake, SAP ERP, and cloud data platforms to optimize workflows, improve reporting, and enable data-driven strategic decision-making.</p>
+                    <p>Currently optimizing healthcare revenue cycle operations and building automated analytics workflows at Specialty1 Partners.</p>
                 </div>
             </div>
         </div>
@@ -118,110 +127,103 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <!-- Experience 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-date">June 2025 – Present</div>
-                    <div class="experience-card glass-effect" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle United Health Group responsibilities">
-                        <div class="experience-card-header">
-                            <div class="experience-card-top">
-                                <div class="company-brand">
-                                    <span class="company-badge-icon">🏥</span>
-                                    <span class="location-badge">📍 USA</span>
-                                </div>
-                            </div>
-                            <h3 class="company-name">United Health Group</h3>
-                            <h4 class="role-title">Business Analyst</h4>
-                            <div class="experience-tags-preview">
-                                <span>SAP ERP</span>
-                                <span>Agile/Scrum</span>
-                                <span>Power BI</span>
-                                <span>RTM & UAT</span>
-                            </div>
-                            <div class="expand-toggle-bar">
-                                <span class="expand-text">View Responsibilities</span>
-                                <span class="expand-chevron">↓</span>
+            <div class="experience-grid">
+                <!-- Experience 1: Specialty1 Partners -->
+                <div class="experience-card glass-effect">
+                    <div class="experience-card-header">
+                        <div class="experience-card-top">
+                            <div class="company-brand">
+                                <span class="company-badge-icon">💼</span>
+                                <span class="location-badge">📍 Houston, TX (On-site)</span>
                             </div>
                         </div>
-                        <div class="card-expandable-body">
-                            <ul class="experience-list">
-                                <li>Clinical operations and IT teams were hitting recurring breakdowns in claims workflows on <strong>SAP ERP</strong>. Working within <strong>Agile/Scrum</strong>, gathered business and functional requirements (<strong>BRD/FRD</strong>) across two <strong>SDLC</strong> cycles and translated them into sprint-ready <strong>JIRA</strong> user stories.</li>
-                                <li>Stakeholder requirements needed full traceability through delivery. Owned the Requirements Traceability Matrix (<strong>RTM</strong>) end-to-end, mapping 100% of requirements to test cases and giving product owners and QA visibility into change impact each <strong>sprint</strong>.</li>
-                                <li>Three SAP ERP releases needed sign-off before production. Led User Acceptance Testing (<strong>UAT</strong>) with developers and QA, writing test cases and use case mappings that surfaced defects earlier and kept all releases 100% on-time.</li>
-                                <li>Claims intake data was breaking down before reaching reporting. Ran <strong>SQL-driven GAP analysis</strong> across SQL Server and SAP ERP with data engineers, improving solution-to-requirement alignment by 40%.</li>
-                                <li>Business leadership lacked real-time claims visibility and relied on manual updates. Designed <strong>Power BI</strong> dashboards consolidating <strong>CRM</strong> and claims data into a self-service view, lifting stakeholder engagement 35%.</li>
-                            </ul>
+                        <h3 class="company-name">Specialty1 Partners</h3>
+                        <h4 class="role-title">RCM System Specialist</h4>
+                        <div class="experience-meta-row">
+                            <span class="experience-duration">Oct 2026 – Present</span>
+                            <span class="experience-type">Full-time</span>
+                        </div>
+                        <div class="experience-tags-preview">
+                            <span>Healthcare RCM</span>
+                            <span>SQL & Power BI</span>
+                            <span>Process Automation</span>
+                            <span>Data Modeling</span>
+                            <span>Excel</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Experience 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-date">May 2023 – July 2024</div>
-                    <div class="experience-card glass-effect" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle Optum responsibilities">
-                        <div class="experience-card-header">
-                            <div class="experience-card-top">
-                                <div class="company-brand">
-                                    <span class="company-badge-icon">💊</span>
-                                    <span class="location-badge">📍 India</span>
-                                </div>
-                            </div>
-                            <h3 class="company-name">Optum</h3>
-                            <h4 class="role-title">Business Analyst</h4>
-                            <div class="experience-tags-preview">
-                                <span>Snowflake</span>
-                                <span>Alteryx</span>
-                                <span>Tableau</span>
-                                <span>Python & SQL</span>
-                            </div>
-                            <div class="expand-toggle-bar">
-                                <span class="expand-text">View Responsibilities</span>
-                                <span class="expand-chevron">↓</span>
+                <!-- Experience 2: United Health Group -->
+                <div class="experience-card glass-effect">
+                    <div class="experience-card-header">
+                        <div class="experience-card-top">
+                            <div class="company-brand">
+                                <span class="company-badge-icon">🏥</span>
+                                <span class="location-badge">📍 Remote (USA)</span>
                             </div>
                         </div>
-                        <div class="card-expandable-body">
-                            <ul class="experience-list">
-                                <li>Existing Alteryx workflows and <strong>SAP ERP</strong> transactional data needed to move onto <strong>Snowflake</strong> to improve reporting performance, so took ownership of requirements gathering within an Agile/Scrum delivery model, working directly with source-system owners and data engineers to reconcile master data through the cutover.</li>
-                                <li>The migration's analytics workflows needed to stay aligned with shifting business priorities, so ran <strong>sprint planning</strong> and <strong>backlog grooming</strong> sessions with product owners and scrum masters to keep <strong>SQL</strong>, <strong>Python</strong>, and <strong>Alteryx</strong> workstreams on track, cutting setup time by 40%.</li>
-                                <li>Migrated data needed validation against legacy outputs before stakeholders could trust it, so built interactive <strong>Tableau</strong> dashboards and partnered with QA and data engineering to catch and resolve mismatches, lifting reporting accuracy by 25%.</li>
-                                <li>Business and technical teams lacked a standardized way to hand off KPI dashboards after the migration, so owned end-to-end documentation (BRD, use case mapping) that closed the gap, boosting team productivity by 60%.</li>
-                                <li>Recurring manual reporting was consuming significant analyst time even after the migration, so automated the process using <strong>Python</strong> and Alteryx, cutting execution time by 20% and minimizing data-entry errors.</li>
-                            </ul>
+                        <h3 class="company-name">United Health Group</h3>
+                        <h4 class="role-title">Business Analyst</h4>
+                        <div class="experience-meta-row">
+                            <span class="experience-duration">Jun 2025 – Sep 2026</span>
+                            <span class="experience-type">1 yr 4 mos</span>
+                        </div>
+                        <div class="experience-tags-preview">
+                            <span>SAP ERP</span>
+                            <span>Agile / Scrum</span>
+                            <span>Power BI</span>
+                            <span>RTM & UAT</span>
+                            <span>BRD / FRD</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Experience 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-date">March 2022 – April 2023</div>
-                    <div class="experience-card glass-effect" tabindex="0" role="button" aria-expanded="false" aria-label="Toggle Trigent Software responsibilities">
-                        <div class="experience-card-header">
-                            <div class="experience-card-top">
-                                <div class="company-brand">
-                                    <span class="company-badge-icon">💻</span>
-                                    <span class="location-badge">📍 India</span>
-                                </div>
-                            </div>
-                            <h3 class="company-name">Trigent Software</h3>
-                            <h4 class="role-title">Junior Data Analyst</h4>
-                            <div class="experience-tags-preview">
-                                <span>Python & Pandas</span>
-                                <span>Databricks</span>
-                                <span>ETL Pipelines</span>
-                                <span>Power BI</span>
-                            </div>
-                            <div class="expand-toggle-bar">
-                                <span class="expand-text">View Responsibilities</span>
-                                <span class="expand-chevron">↓</span>
+                <!-- Experience 3: Optum -->
+                <div class="experience-card glass-effect">
+                    <div class="experience-card-header">
+                        <div class="experience-card-top">
+                            <div class="company-brand">
+                                <span class="company-badge-icon">💊</span>
+                                <span class="location-badge">📍 Remote (India)</span>
                             </div>
                         </div>
-                        <div class="card-expandable-body">
-                            <ul class="experience-list">
-                                <li>Partnered with business stakeholders at a healthcare client to understand reporting requirements, uncovering that manual processes and slow SQL queries across multiple disconnected systems were delaying business insights and forecasting.</li>
-                                <li>Worked with Data Engineers and BI Developers to design a <strong>Business Intelligence</strong> and predictive analytics platform, gathering requirements and translating them into a scalable reporting solution to replace the manual workflow.</li>
-                                <li>Built predictive analytics models in <strong>Python</strong> and Pandas, optimized SQL/SSRS reporting queries, and designed end-to-end ETL pipelines feeding interactive <strong>Power BI</strong> dashboards on <strong>Databricks</strong>, validating data accuracy through source-to-target reconciliation during testing.</li>
-                                <li>Delivered a solution that improved forecasting accuracy by 40% and reporting clarity by 35%, giving stakeholders faster, self-service access to KPIs and reducing reliance on manual reporting cycles.</li>
-                            </ul>
+                        <h3 class="company-name">Optum</h3>
+                        <h4 class="role-title">Business Analyst</h4>
+                        <div class="experience-meta-row">
+                            <span class="experience-duration">May 2023 – Jul 2024</span>
+                            <span class="experience-type">1 yr 3 mos</span>
+                        </div>
+                        <div class="experience-tags-preview">
+                            <span>Snowflake</span>
+                            <span>Alteryx</span>
+                            <span>Tableau</span>
+                            <span>Python & SQL</span>
+                            <span>Sprint Planning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience 4: Trigent Software -->
+                <div class="experience-card glass-effect">
+                    <div class="experience-card-header">
+                        <div class="experience-card-top">
+                            <div class="company-brand">
+                                <span class="company-badge-icon">💻</span>
+                                <span class="location-badge">📍 Remote (India)</span>
+                            </div>
+                        </div>
+                        <h3 class="company-name">Trigent Software</h3>
+                        <h4 class="role-title">Junior Data Analyst</h4>
+                        <div class="experience-meta-row">
+                            <span class="experience-duration">Mar 2022 – Apr 2023</span>
+                            <span class="experience-type">1 yr 2 mos</span>
+                        </div>
+                        <div class="experience-tags-preview">
+                            <span>Python & Pandas</span>
+                            <span>Databricks</span>
+                            <span>ETL Pipelines</span>
+                            <span>Power BI</span>
+                            <span>Predictive Analytics</span>
                         </div>
                     </div>
                 </div>
@@ -529,11 +531,11 @@
             <div class="contact-content">
                 <div class="contact-info glass-effect">
                     <h3>Let's Connect</h3>
-                    <p>I'm always open to discussing new opportunities, analytics projects, or collaborations in data analytics and business intelligence.</p>
+                    <p>I'm always open to discussing healthcare analytics projects, data intelligence workflows, or collaborative technical initiatives.</p>
                     <div class="contact-details">
-                        <a href="mailto:somil.d@myjobflows.com" class="contact-item">
+                        <a href="mailto:somildoshi1202@gmail.com" class="contact-item">
                             <span class="contact-icon">✉️</span>
-                            <span>somil.d@myjobflows.com</span>
+                            <span>somildoshi1202@gmail.com</span>
                         </a>
                         <a href="tel:+17135725426" class="contact-item">
                             <span class="contact-icon">📱</span>
